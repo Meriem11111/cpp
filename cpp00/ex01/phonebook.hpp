@@ -13,8 +13,6 @@ public :
     phonebook();
     void add(std::string &frstname, std::string &lstname, std::string &nname, std::string &phne_num, std::string &secret);
     void search() const;
-    void printContacts() const; 
-  
     void exit();
     void welcome();
 };

@@ -3,6 +3,7 @@
 #define CONTACT_HPP
 #include <iostream>
 #include <iomanip>
+#include <cctype>
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
