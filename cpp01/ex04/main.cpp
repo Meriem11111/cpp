@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:40:38 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/09 00:00:29 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/09 00:19:04 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int main(int ac, char **av)
             return 1;
         }
         
+        // if(!std::getline(readfile,line ))
+        //     std::cerr << "empty file " << std::endl;
         while(std::getline(readfile,line ))
         {
             index = line.find(s1);
@@ -51,7 +53,7 @@ int main(int ac, char **av)
                 outfile << '\n'; 
             }
             else
-                break;
+                break;// works even without it
         }
         readfile.close();
         outfile.close();
