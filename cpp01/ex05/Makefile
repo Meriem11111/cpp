@@ -1,4 +1,4 @@
-NAME = my_prog
+NAME = harl
 CC = c++
 CFLAGS = -Wall -Wextra -Werror  -std=c++98 -fsanitize=address -g3
 CFILES = main.cpp Harl.cpp

@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 00:21:36 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/07 02:24:08 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/07 17:58:49 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ class HumanB
         Weapon* weapon;
         std::string name;
     public:
-        void setWeapon(Weapon &weapoon);
         HumanB(std::string name);
+        ~HumanB();
+        void setWeapon(Weapon &weapoon);
         void attack();
 };
 

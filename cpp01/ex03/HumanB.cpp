@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 23:42:10 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/07 02:33:41 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/07 17:59:16 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,5 @@ void HumanB::attack()
     if(weapon)
         std::cout << name << " attacks with their " << weapon->getType() << std::endl;    
 }
+
+HumanB::~HumanB(){}
