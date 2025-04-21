@@ -1,7 +1,7 @@
 NAME = phone
 CC = c++
 CFLAGS =  -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp contact.cpp
+SRCS = main.cpp contact.cpp phonebook.cpp
 OFILES = $(SRCS:.cpp=.o)
 
 RED = "\033[0;31m"

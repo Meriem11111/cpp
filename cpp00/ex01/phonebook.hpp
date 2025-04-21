@@ -11,9 +11,8 @@ private:
 
 public :
     phonebook();
-    void add(std::string &frstname, std::string &lstname, std::string &nname, std::string &phne_num, std::string &secret);
+    void add();
     void search() const;
-    void exit();
     void welcome();
 };
 
