@@ -8,9 +8,9 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name) 
 {
     if(grade < 1)
-        throw GradeLowException(); // heere i throw an instance of the object 
+        throw GradeTooLowException(); // heere i throw an instance of the object 
     else if(grade > 150)
-        throw GradeHighException(); 
+        throw GradeTooHighException(); 
     else
         Grade = grade;
    
@@ -47,7 +47,7 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::increment()
 {
     if(Grade - 1 < 1)
-        throw GradeLowException();
+        throw GradeTooLowException();
     else
         this->Grade--;
 }
@@ -55,16 +55,16 @@ void Bureaucrat::increment()
 void Bureaucrat::decrement()
 {
     if(Grade + 1 > 150)
-        throw GradeHighException(); 
+        throw GradeTooHighException(); 
     this->Grade++;
 }
 
-const char* Bureaucrat::GradeLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return("Grade too High");
 }
 
-const char* Bureaucrat::GradeHighException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return("Grade too Low");
 }
