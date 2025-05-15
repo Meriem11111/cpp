@@ -3,6 +3,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -19,6 +20,7 @@ class Bureaucrat
         int getGrade() const;
         void  increment();
         void  decrement();
+        void  signForm(Form& form) const;
 
         class GradeTooLowException : public std::exception
         {
@@ -37,6 +39,6 @@ class Bureaucrat
 
 
 
-std::ostream& operator<<(std::ostream& out, Bureaucrat &bureaucrat);
+std::ostream& operator<<(std::ostream& out, const Bureaucrat &bureaucrat);
 
 #endif
