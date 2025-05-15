@@ -23,6 +23,7 @@ class contact {
         std::string DarkestSecret;
     public :
     contact();
+    ~contact();
     void set_FirstName(std::string &firstname);
     void set_LastName(std::string &lastname);
     void set_Nickname(std::string &nickname);

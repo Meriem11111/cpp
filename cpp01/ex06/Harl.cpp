@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 21:56:59 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/09 23:24:58 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/25 00:13:10 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,47 +40,6 @@ void Harl::error(void)
     std::cout << std::endl;
 }
 
-// void levelS_call(int index)
-// {
-//     Harl level;
-    
-// }
-
-// void Harl::complain(std::string level)
-// {
-//     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};  
-//     int i = 0;
-//     int index = -1;
-//     while(i < 4)
-//     {
-//         if(level.compare(levels[i]) == 0)
-//         {
-//             index = i;
-//             break;
-//         }
-//         i++;
-//     }
-//     //  void (Harl::*ptrs[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-     
-    
-//    switch(index){
-//     case (0):
-//         Harl::debug();
-//     case (1):
-//         Harl::info();
-//     case (2):
-//         Harl::warning();
-//     case (3):
-//         Harl::error();
-//         break;   
-//     default:
-//         std::cerr << "[ Probably complaining about insignificant problems ]" << std::endl;
-//         break;
-//    };
-    
-// }
-
-
 void Harl::complain(std::string level)
 {
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
@@ -101,13 +60,10 @@ void Harl::complain(std::string level)
     {
         case 0:
             Harl::debug();
-            // fallthrough
         case 1:
             Harl::info();
-            // fallthrough
         case 2:
             Harl::warning();
-            // fallthrough
         case 3: 
             Harl::error();
             break;
@@ -116,3 +72,4 @@ void Harl::complain(std::string level)
             break;
     }
 }
+

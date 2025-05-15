@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = Claptrap
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OFILES = $(CFILES:.cpp=.o)

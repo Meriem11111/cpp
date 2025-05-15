@@ -11,6 +11,7 @@ private:
 
 public :
     phonebook();
+    ~phonebook();
     void add();
     void search() const;
     void welcome();

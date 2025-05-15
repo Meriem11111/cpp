@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: meabdelk <meabdelk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:36:50 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/18 01:33:44 by meriem           ###   ########.fr       */
+/*   Updated: 2025/05/04 08:37:00 by meabdelk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int main()
+int main() 
 {
     ClapTrap player("Player1");
-    player.attack("Enemy1");
-    player.takeDamage(5);
-    player.beRepaired(10);
-    player.attack("Enemy2");
-
     
+    player.attack("enemy");
+    
+    player.takeDamage(10); 
+    player.beRepaired(5);  
+    player.attack("plyr2"); 
 }

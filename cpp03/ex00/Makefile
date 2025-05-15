@@ -1,16 +1,19 @@
-NAME = ClapTrap
+
+NAME = my_claptrap
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror  -std=c++98 
+CFILES = main.cpp ClapTrap.cpp
 OFILES = $(CFILES:.cpp=.o)
-SRCS = main.cpp ClapTrap.cpp
 
 all: $(NAME)
 
-$(NAME) : $(SRCS)
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+$(NAME) : $(CFILES)
+	$(CC) $(CFLAGS) $(CFILES) -o $(NAME)
 
 clean :
 	rm -rf $(OFILES)
-fclean: clean
+
+fclean : clean
 	rm -rf $(NAME)
-re: fclean all
+
+re : fclean all

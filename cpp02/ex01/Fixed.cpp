@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: meabdelk <meabdelk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 01:06:18 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/12 03:04:13 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/30 09:33:43 by meabdelk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-
 
 Fixed::Fixed()
 {
@@ -44,8 +42,7 @@ Fixed& Fixed::operator=(const Fixed& org)
 
 
 int Fixed::getRawBits( void ) const
-{
-    
+{   
     return(this->value);
 }
 
@@ -57,18 +54,15 @@ void Fixed::setRawBits( int const raw )
 Fixed::Fixed(const int val)
 {
     std::cout << "Int constructor called" << std::endl;
-    
     value = val << fract_bits ; 
 }
 
 Fixed::Fixed(const float nbr)
 {
     std::cout << "Float constructor called" << std::endl;
-    //  value = (int)roundf(nbr * 256) ;
-     this->value = (int)roundf(nbr * (1 << fract_bits)); //1 << 8 = 256
+     this->value = (int)roundf(nbr * (1 << fract_bits));
     
 }
-
 
 float Fixed::toFloat( void ) const
 {

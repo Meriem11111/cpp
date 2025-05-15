@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 23:52:23 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/06 00:33:37 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/24 16:23:33 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int main()
 {
-    Zombie* Z = zombieHorde(5, "test");
+    int count = 5;
+    Zombie* Z = zombieHorde(count, "zombie");
     int i = 0;
 
-    while(i < 5)
+    while(i < count)
     {
         Z[i].announce();
         i++;

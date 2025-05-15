@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: meabdelk <meabdelk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 23:26:04 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/19 00:31:03 by meriem           ###   ########.fr       */
+/*   Updated: 2025/05/04 08:35:32 by meabdelk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 
-	int main( void )
+int main( void )
 {
-    ScavTrap ash( "mrym" );
-    ScavTrap ash2( ash );
+    ScavTrap robot( "Player" );
 
-    ash.attack( "test" );
-    ash.takeDamage( 10 );
-    ash.beRepaired( 10 );
-    ash.guardGate();
+    robot.attack( "Player2" );
+    robot.takeDamage( 2 );
+    robot.beRepaired( 5 );
+    robot.guardGate();
 
     return 0;
 }

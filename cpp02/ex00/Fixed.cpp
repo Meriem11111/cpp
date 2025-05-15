@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: meabdelk <meabdelk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 00:32:23 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/12 00:57:33 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/30 09:07:26 by meabdelk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,11 @@ Fixed::Fixed(const Fixed& original)
 
 Fixed& Fixed::operator=(const Fixed& org)
 {
-    // std::cout << "ORG = " << &org << std::endl;
-    // std::cout << "*****THIS = " << this << std::endl;
-    
     std::cout << "Assignation operator called" << std::endl;
     if(this != &org)
-    {
         this->setRawBits(org.getRawBits());
-    }   
     return(*this);
 }
-
 
 int Fixed::getRawBits( void ) const
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
+/*   By: meabdelk <meabdelk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 01:06:18 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/13 02:36:55 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/30 09:08:48 by meabdelk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Fixed::Fixed()
 
 Fixed::~Fixed()
 {
-    // std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& original)
@@ -35,7 +34,6 @@ Fixed& Fixed::operator=(const Fixed& org)
     }   
     return(*this);
 }
-
 
 int Fixed::getRawBits( void ) const
 {
@@ -58,7 +56,6 @@ Fixed::Fixed(const float nbr)
     this->value = (int)roundf(nbr * (1 << fract_bits));
     
 }
-
 
 float Fixed::toFloat( void ) const
 {
@@ -112,9 +109,9 @@ bool Fixed::operator!=(const Fixed& num) const
 
 //----------------------------------------------------------------------------------//
 
-Fixed Fixed::operator/(const Fixed& num)  // make sure the division keeps decimal precision,
+Fixed Fixed::operator/(const Fixed& num) 
 {
-    return (Fixed(this->toFloat() / num.toFloat())); // The division produces a new result, and the result needs to be returned as a Fixed object
+    return (Fixed(this->toFloat() / num.toFloat()));
 }
 
 Fixed Fixed::operator*(const Fixed& num)
@@ -148,7 +145,7 @@ Fixed& Fixed::operator--()
 
 Fixed Fixed::operator++(int)
 {
-    Fixed temp = this->value;
+    Fixed temp = *this;
     this->value++;
     return(temp);    
 }
@@ -159,9 +156,6 @@ Fixed Fixed::operator--(int)
     this->value--;
     return(temp);    
 }
-
-//In the min and max functions, you want to return the original object (either a or b) that is the smallest or largest, not a copy of the object.
-
 
 Fixed& Fixed::min(Fixed& num1, Fixed& num2)
 {

@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:36:22 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/05 23:42:09 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/24 16:35:03 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 int main()
 {
-    Zombie me("ME");
-    me.announce();
+    Zombie zombie("zombie1");
+    zombie.announce();
     
-    Zombie* mer = newZombie("MIMI");
-    mer->announce();
-     delete mer;
+    Zombie* zombie2 = newZombie("zombie2");
+    zombie2->announce(); 
+    delete zombie2;
 
-    randomChump( "TESTT ");
+    randomChump( "zombie3 ");
     
 }
+

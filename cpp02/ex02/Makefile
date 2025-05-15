@@ -1,6 +1,6 @@
 NAME = Fixed
 CC = c++
-CFLAGS = -Wall -Wextra -Werror  -std=c++98 #-fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror  -std=c++98
 CFILES = main.cpp Fixed.cpp
 OFILES = $(CFILES:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: meabdelk <meabdelk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:58:44 by meabdelk          #+#    #+#             */
-/*   Updated: 2025/04/21 17:01:37 by meabdelk         ###   ########.fr       */
+/*   Updated: 2025/04/22 09:39:51 by meabdelk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,12 @@ void contact::set_DarkestSecret(std::string &darkestSecret)
 void contact::set_PhoneNumber(std::string &phoneNumber)
 {
     PhoneNumber = phoneNumber;
+}
+
+phonebook::~phonebook()
+{
+}
+
+contact::~contact()
+{
 }

@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 20:04:16 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/09 22:56:39 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/24 23:06:36 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int main(int ac, char **av)
         Harl harl;
         std::string level = av[1];
         harl.complain(level);
-        
     }
     else
-        std::cerr << "Error !" << std::endl;
+        std::cerr << "Error " << std::endl;
     
     return 0;
 }

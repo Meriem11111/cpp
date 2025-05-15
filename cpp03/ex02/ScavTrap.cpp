@@ -6,7 +6,7 @@
 /*   By: meabdelk <meabdelk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 23:42:58 by meriem            #+#    #+#             */
-/*   Updated: 2025/05/04 08:39:14 by meabdelk         ###   ########.fr       */
+/*   Updated: 2025/05/04 08:38:41 by meabdelk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap Destructor is called !" << std::endl;
-}
 
-ScavTrap::ScavTrap(const ScavTrap &original): ClapTrap(original)
-{
-    std::cout << "ScavTrap Copy Constructor is called !" << std::endl;
-    this->Name = original.Name;
-    this->hit_points = original.hit_points;
-    this->energy_points = original.energy_points;
-    this->attack_damage = original.attack_damage;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& org)
@@ -55,12 +47,20 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& org)
     return (*this);
 }
 
+ScavTrap::ScavTrap(const ScavTrap &original) : ClapTrap(original)
+{
+    std::cout << "ScavTrap Copy Constructor is called !" << std::endl;
+    this->Name = original.Name;
+    this->hit_points = original.hit_points;
+    this->energy_points = original.energy_points;
+    this->attack_damage = original.attack_damage;
+}
+
 void ScavTrap::attack(const std::string& target)
 {
     if(this->energy_points > 0 && this->hit_points > 0)
     {
-        std::cout << "ScavTrap " << this->Name << " attacks " << target 
-                  <<  ", causing " << this->attack_damage << " points of damage!" << std::endl;
+        std::cout << "ScavTrap " << this->Name << " attacks " << target <<  ", causing " << this->attack_damage << " points of damage!" << std::endl;
         this->energy_points--;
     }
     else

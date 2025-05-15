@@ -1,7 +1,8 @@
-NAME = harl
+
+NAME = my_claptrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror  -std=c++98 
-CFILES = main.cpp Harl.cpp
+CFILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OFILES = $(CFILES:.cpp=.o)
 
 all: $(NAME)

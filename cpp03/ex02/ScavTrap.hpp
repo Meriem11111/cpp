@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/06 23:42:10 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/24 22:27:31 by meriem           ###   ########.fr       */
+/*   Created: 2025/04/18 23:26:08 by meriem            #+#    #+#             */
+/*   Updated: 2025/05/01 23:59:19 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-#include "HumanB.hpp"
+#include "ClapTrap.hpp"
 
-HumanB::HumanB(std::string name)
+class ScavTrap: public ClapTrap
 {
-    this->name = name;
-}
+  public:
+    ScavTrap();  
+    ScavTrap(std::string name);  
+    ~ScavTrap();
+    ScavTrap& operator=(const ScavTrap& org);
+    ScavTrap(const ScavTrap &original);
+    void guardGate();
+    void attack(const std::string& target);
+    
+};
 
-void HumanB::setWeapon(Weapon &weapoon)
-{
-    this->weapon = &weapoon;
-}
-
-void HumanB::attack()
-{
-    if(weapon)
-        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-    else
-        std::cout << name << " has no weapon to attack with." << std::endl;
-}
-
-HumanB::~HumanB(){}
+#endif

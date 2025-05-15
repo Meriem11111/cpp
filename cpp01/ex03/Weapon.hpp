@@ -6,7 +6,7 @@
 /*   By: meriem <meriem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 23:45:44 by meriem            #+#    #+#             */
-/*   Updated: 2025/04/07 17:57:30 by meriem           ###   ########.fr       */
+/*   Updated: 2025/04/23 23:03:36 by meriem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class Weapon
         std::string type;
     public:
         Weapon(std::string type);
-        // Weapon();
         ~Weapon();
-       const std::string& getType() const;
+        const std::string& getType() const;
         void setType(const std::string& newtype); 
         
 };
