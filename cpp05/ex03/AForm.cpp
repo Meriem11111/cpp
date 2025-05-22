@@ -1,6 +1,6 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(std::string namee, int toSign, int toExecute) : Name(namee) , GradeToSign(toSign) , GradeToExecute(toExecute)
+Form::Form(std::string namee,  std::string target,int toSign, int toExecute) : Name(namee) , target(target), GradeToSign(toSign) , GradeToExecute(toExecute)
 {
     this->isSigned = false;
     if(GradeToSign < 1 || GradeToExecute < 1)
@@ -9,7 +9,7 @@ Form::Form(std::string namee, int toSign, int toExecute) : Name(namee) , GradeTo
         throw GradeTooLowException();
 }
 
-Form::Form():  Name("") , GradeToSign(150) , GradeToExecute(150)
+Form::Form():  Name("") , target(""), GradeToSign(150) , GradeToExecute(150)
 {
     this->isSigned = false;
 }
@@ -36,6 +36,11 @@ Form& Form::operator=(const Form& other)
 std::string Form::getName() const
 {
     return(Name);
+}
+
+std::string Form::getTarget() const
+{
+    return(target);
 }
 
 int Form::getGradeToSign() const
@@ -71,6 +76,12 @@ const char* Form::GradeTooHighException::what() const throw()
 {
     return("Grade too High");
 }
+
+const char* Form::FormNotSignedException::what() const throw()
+{
+    return("Form Not Signed!");
+}
+
 
 std::ostream& operator<<(std::ostream& out, const Form& form)
 {
