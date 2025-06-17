@@ -5,16 +5,19 @@
 #include <iostream>
 
 
-
-class Data
-{
-    public:
-        Data();
-        ~Data();
-        Data(const Data& org);
-        Data& operator=(const Data& org);
-        std::string str;
-        uintptr_t num;
+struct Data{
+     int num;
+     
 };
+
+// class Data
+// {
+//     public:
+//         Data();
+//         ~Data();
+//         Data(const Data& org);
+//         Data& operator=(const Data& org);
+//         int num;
+// };
 
 #endif

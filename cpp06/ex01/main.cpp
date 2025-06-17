@@ -4,15 +4,28 @@
 int main()
 {
     Data data;
-    data.num = 25;
-    data.str = "Mrym";
+    data.num = 10;
 
-    std::cout << "address bfr :: " << &data << std::endl;
+    Data* ptr = &data;
+
+    std::cout << "Original Address  :: " << ptr << std::endl;
     
-    uintptr_t raw = Serializer::serialize(&data);
+    uintptr_t raw = Serializer::serialize(ptr);
     std::cout << "raw :: " << raw << std::endl;
     
-    uintptr_t recover = Serializer::serialize(raw);
-    std::cout << "recover  :: " << recover << std::endl;
+    Data* recover = Serializer::deserialize(raw);
+    std::cout << "Recover  :: " << recover << std::endl;
+
+    std::cout << "num  :: " << recover->num << std::endl;
+
+    if(ptr == recover)
+    {
+        std::cout << "Same Address"  << std::endl;
+    }
+    else
+        std::cout << "Not Same Adress"  << std::endl;
+
+
+    return 0;
 
 }
