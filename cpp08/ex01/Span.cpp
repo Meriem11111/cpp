@@ -3,7 +3,6 @@
 Span::Span(unsigned int n)
 {
     N = n;
-    size = 0;
 }
 
 Span::Span(const Span& org)
@@ -34,11 +33,11 @@ void Span::DisplayArray()
 void Span::addNumber(int number)
 {
     try {
-        if(N > size)
+        if(N > arr.size())
         {
             arr.push_back(number);
             std::cout << number << " is added !" << std::endl;
-            size++;
+           
         }
         else
             throw std::out_of_range("Can't add more numbers , array is FULL.");
@@ -75,4 +74,18 @@ int Span::shortestSpan()
             shortest = diff;
     }
     return (shortest);
+}
+
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+    if(arr.size() + std::distance(begin, end) > N)
+        throw std::runtime_error("Cannot add numbers");
+    arr.insert(arr.end(), begin, end);
+}
+
+unsigned int Span::sizeLeft() const
+{
+    // if (arr.size() >= N)
+    //     return 0;
+    return(N - arr.size());
 }

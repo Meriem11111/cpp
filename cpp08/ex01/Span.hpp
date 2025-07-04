@@ -6,13 +6,13 @@
 #include <exception>
 #include <algorithm>
 #include <climits>
+#include<ctime>
 
 class Span
 {
     private:
         unsigned int N;
         std::vector <int> arr;
-        unsigned int size;
 
     public:
         Span(unsigned int n);
@@ -21,9 +21,12 @@ class Span
         ~Span();
 
         void addNumber(int number);
+        void addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         void DisplayArray();
         int longestSpan();
         int shortestSpan();
+
+        unsigned int sizeLeft() const;
 
 
 };

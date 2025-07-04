@@ -2,15 +2,13 @@
 
 int main()
 {
-    Span s(6);
+    Span s(10000);
 
-    s.addNumber(12);
-    s.addNumber(4);
-    s.addNumber(7);
-    s.addNumber(2);
-    // s.addNumber(3);
-    // s.addNumber(5);
-    // s.addNumber(6);
+    // sp.addNumber(6);
+    s.addNumber(3);
+    s.addNumber(17);
+    s.addNumber(9);
+    s.addNumber(11);
     //  s.DisplayArray();
 
     try 
@@ -29,6 +27,23 @@ int main()
     catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
-    
+    std::srand(std::time(0));
+    std::vector<int> v;
+    int remaining = s.sizeLeft();
+    std::cout <<"renmain ======  "<< remaining << std::endl; 
+    for (int i = 0 ; i < remaining; i++)
+    {
+        v.push_back(std::rand() % 10);
+    }
+
+    try{
+        s.addRange(v.begin(), v.end());
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    s.DisplayArray();
     return 0;
 }
