@@ -8,6 +8,7 @@ int main(int ac, char **av)
         return -1;
     }
     BitcoinExchange B;
+    B.ParseData();
     B.ParseFile(av[1]);
 
 }

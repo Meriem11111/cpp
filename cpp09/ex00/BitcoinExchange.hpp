@@ -3,16 +3,23 @@
 
 #include <iostream>
 #include <fstream>
+#include <map>
 #include<cctype>
+#include <sstream>
 
 class  BitcoinExchange
 {
-
+    private:
+        std::map<std::string, float> btc;
     public:
         void ParseFile(const char* readfile);
         void CheckDate_Value(std::string& Date, std::string& Value);
-        void checkDate(std::string& Date);
-        void checkValue(std::string& Value);
+        bool checkDate(std::string& Date);
+        bool checkValue(std::string& Value, float& val);
+        void ParseData(void);
+
+        void display(std::map<std::string, float>& out); 
+
 };
 
 #endif
