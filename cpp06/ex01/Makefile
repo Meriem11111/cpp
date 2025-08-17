@@ -1,7 +1,7 @@
 NAME = convert
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
-SRCS = main.cpp Data.cpp Serializer.cpp 
+SRCS = main.cpp  Serializer.cpp 
 OFILES = $(SRCS:.cpp=.o)
 
 all : $(NAME)

@@ -5,19 +5,11 @@
 #include <iostream>
 
 
-struct Data{
+struct Data
+{
      int num;
      
 };
 
-// class Data
-// {
-//     public:
-//         Data();
-//         ~Data();
-//         Data(const Data& org);
-//         Data& operator=(const Data& org);
-//         int num;
-// };
 
 #endif

@@ -7,7 +7,8 @@
 
 int main()
 {
-    try {
+    try 
+    {
         Bureaucrat bureaucrat("mrym", 3);
         PresidentialPardonForm president("prsdnt");
 

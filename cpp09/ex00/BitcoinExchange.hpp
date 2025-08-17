@@ -7,7 +7,7 @@
 #include<cctype>
 #include <sstream>
 
-class  BitcoinExchange
+class  BitcoinExchange // i need to add constructor & deconstructre ....
 {
     private:
         std::map<std::string, float> btc;
@@ -20,6 +20,8 @@ class  BitcoinExchange
 
         void display(std::map<std::string, float>& out); 
 
+
+        
 };
 
 #endif

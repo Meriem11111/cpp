@@ -1,12 +1,19 @@
 #include "Data.hpp"
 #include "Serializer.hpp"
 
+#include <fstream>
+
 int main()
 {
     Data data;
     data.num = 10;
 
     Data* ptr = &data;
+
+    std::ofstream outfile("test.txt");
+
+    outfile << &data;
+    outfile.close();
 
     std::cout << "Original Address  :: " << ptr << std::endl;
     

@@ -18,7 +18,7 @@ ScalarConverter& ScalarConverter:: operator=(const ScalarConverter& obj)
 
 bool CheckFloat(const std::string &str)
 {
-    if(str[str.length() -1 ] != 'f')
+    if(str[str.length() - 1 ] != 'f')
         return false;
 
     size_t i = 0;
@@ -36,26 +36,29 @@ bool CheckFloat(const std::string &str)
         }
         if(!std::isdigit(str[i]))
         {
+        std::cout <<"here error"<< std::endl;
+
             return false;
         }
         i++;
     }
+        std::cout <<"here done"<< std::endl;
+
     return true;
 }
 
 
 bool CheckDouble(const std::string &str)
 {
-    // if(str[str.length() -1 ] != 'f')
-    //     return false;
+    
 
     size_t i = 0;
     int count = 0;
-
-    if(str[i] == '+' || str[i] == '-')
-        i++;
     
-    while(i < str.length() - 1)
+    if(str[i] == '+' || str[i] == '-')
+    i++;
+
+    while(i < str.length())
     {
         if(str[i] == '.' && count == 0)
         {
@@ -81,7 +84,9 @@ bool checkDigit(const std::string &str)
     while(i < str.length())
     {
         if(!std::isdigit(str[i]))
+        {
             return false;
+        }
         i++;
     }
     return true;
@@ -103,9 +108,8 @@ void ScalarConverter::convert(const std::string &literal)
     }
     else if(checkDigit(literal))
     {
-        char *end;
-
-        long nbr = std::strtol(literal.c_str(), &end, 10);
+        
+        double nbr = std::atof(literal.c_str());
         if(nbr > INT_MAX || nbr < INT_MIN)
         {
             std::cout << "Error !" << std::endl;
@@ -113,7 +117,7 @@ void ScalarConverter::convert(const std::string &literal)
         }
         std::cout << "int: " << static_cast<int>(nbr) <<std::endl;
 
-        if(std::isprint(static_cast<char>(nbr)) ) // check >= 32 if i add it ??
+        if(std::isprint(static_cast<char>(nbr)) && nbr > 32 && nbr < 127) // check >= 32 if i add it ??
             std::cout << "char: " << static_cast<char>(nbr) <<std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
@@ -123,6 +127,7 @@ void ScalarConverter::convert(const std::string &literal)
     }
     else if(CheckFloat(literal) || literal == "-inff" || literal == "+inff" || literal == "nanf")
     {
+        std::cout <<"here "<< std::endl;
         if(literal == "-inff" || literal == "+inff" || literal == "nanf")
         {
             std::cout << "char: " << "impossible" <<std::endl;
@@ -137,7 +142,7 @@ void ScalarConverter::convert(const std::string &literal)
         
         std::cout << "int: " << static_cast<int>(nbr) <<std::endl;
 
-        if(std::isprint(static_cast<char>(nbr)) ) // check >= 32 if i add it ??
+        if(std::isprint(static_cast<char>(nbr))  && nbr > 32 && nbr < 127) // check >= 32 if i add it ??
             std::cout << "char: " << static_cast<char>(nbr) <<std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
@@ -146,6 +151,8 @@ void ScalarConverter::convert(const std::string &literal)
     }
      else if(CheckDouble(literal) || literal == "-inf" || literal == "+inf" || literal == "nan")
      {
+        std::cout <<"here double"<< std::endl;
+
          if(literal == "-inf" || literal == "+inf" || literal == "nan")
         {
             std::cout << "char: " << "impossible" <<std::endl;
@@ -160,7 +167,7 @@ void ScalarConverter::convert(const std::string &literal)
         
         std::cout << "int: " << static_cast<int>(nbr) <<std::endl;
 
-        if(std::isprint(static_cast<char>(nbr)) ) // check >= 32 if i add it ??
+        if(std::isprint(static_cast<char>(nbr)) && nbr > 32 && nbr < 127) // check >= 32 if i add it ??
             std::cout << "char: " << static_cast<char>(nbr) <<std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;

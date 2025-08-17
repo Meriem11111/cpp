@@ -12,7 +12,7 @@ B::~B(){}
 C::C(){}
 C::~C(){}
 
-Base * generate(void)
+Base* generate(void)
 {
     
     int random = rand() % 3;
@@ -50,7 +50,7 @@ void identify(Base* p)
     {
          std::cout << "The type is B !!" << std::endl;
     }
-     else if(dynamic_cast<C*> (p))
+    else if(dynamic_cast<C*> (p))
     {
          std::cout << "The type is C !!" << std::endl;
     }

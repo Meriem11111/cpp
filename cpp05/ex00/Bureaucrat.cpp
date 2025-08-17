@@ -1,9 +1,10 @@
 
 #include "Bureaucrat.hpp"
 
-
 Bureaucrat::Bureaucrat()
-{}
+{
+    std::cout << "constructor called\n";
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name) 
 {
@@ -16,9 +17,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name)
    
 }
 
-
 Bureaucrat::~Bureaucrat()
-{}
+{
+    std::cout << "Destructor called\n";
+}
 
 Bureaucrat:: Bureaucrat(const Bureaucrat& other): Name(other.Name)
 {
