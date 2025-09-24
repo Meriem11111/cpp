@@ -33,8 +33,8 @@ class Array
         {
             if(this != &org)
             {
-                T* arr = new T[org.nb](); //exception-safe copying.
-                for(unsigned int i = 0; i < nb; i++)
+                T* arr = new T[org.nb]();
+                for(unsigned int i = 0; i < org.nb; i++)
                 {
                     arr[i] = org.array[i]; 
                 }
