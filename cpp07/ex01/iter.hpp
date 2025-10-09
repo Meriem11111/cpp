@@ -15,7 +15,7 @@ void iter(T* array, size_t length, F function)
 template <typename T>
 void function(T element)
 {
-    std::cout << element << std::endl;
+    std::cout << element << std::endl;;
 }
 
 #endif
