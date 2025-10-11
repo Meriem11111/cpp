@@ -7,8 +7,7 @@
 #include <algorithm>
 
 template <typename T>
-
-void easyfind(T container, int to_find)
+void easyfind(T& container, int to_find)
 {
     for(typename T::iterator it = container.begin(); it != container.end(); it++)
     {
@@ -19,7 +18,6 @@ void easyfind(T container, int to_find)
         }
     }
     std::cout << to_find << " Not Found !"<<std::endl;
-
 }
 
 #endif

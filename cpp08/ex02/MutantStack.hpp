@@ -30,7 +30,7 @@ class MutantStack : public std::stack<T>
         typedef typename std::stack<T>::container_type::iterator iterator;
         iterator begin()
         {
-            return(this->c.begin());
+            return(this->c.begin()); //std::deque<int> c; // stores the elements
         }
         iterator end()
         {

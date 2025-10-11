@@ -32,21 +32,15 @@ void Span::DisplayArray()
 
 void Span::addNumber(int number)
 {
-    try {
-        if(N > arr.size())
-        {
-            arr.push_back(number);
-            std::cout << number << " is added !" << std::endl;
-           
-        }
-        else
-            throw std::out_of_range("Can't add more numbers , array is FULL.");
-
-    }
-    catch (std::exception &e)
+    if(N > arr.size())
     {
-        std::cerr << e.what() << std::endl; 
+        arr.push_back(number);
+        std::cout << number << " is added !" << std::endl;
+        
     }
+    else
+        throw std::out_of_range("Can't add more numbers , array is FULL.");
+
 }
 
 
@@ -69,7 +63,6 @@ int Span::shortestSpan()
     for (unsigned int i = 0; i + 1 < arr.size(); i++)
     {
         diff = arr[i + 1]- arr[i];
-        // std::cout << "diff == " << diff << std::endl;
         if (shortest > diff)
             shortest = diff;
     }

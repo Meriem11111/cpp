@@ -1,35 +1,44 @@
 #include "easyfind.hpp"
 
+#include <iostream>
+#include <vector>
+#include <list>
+#include <deque>
+#include "easyfind.hpp"
 
 int main()
 {
-    std::vector<int> v = {3, 4, 55, 6, 7, 0};
+    // ====== VECTOR TEST ======
+    std::vector<int> vec;
+    vec.push_back(10);
+    vec.push_back(20);
+    vec.push_back(30);
+    vec.pop_back();
 
-    v.push_back(2);
-    // easyfind(v, 2);
-    std::sort(v.begin(), v.end());
-    for(std::vector<int>::iterator it = v.begin(); it != v.end(); it++)
-    {
-        std::cout << "-----> " << *it << std::endl;
-    }
-    
-     std::cout << "------------------------------------------ "<< std::endl;
+    std::cout << "--- Testing std::vector ---" << std::endl;
+    easyfind(vec, 20);   
+    easyfind(vec, 50);   
 
-    std::list<int> l;
-    l.push_back(2);
-    l.push_back(7);
-    l.push_back(3);
-    l.push_front(1);
-    l.push_front(0);
+    // ====== LIST TEST ======
+    std::list<int> lst;
+    lst.push_front(5);
+    lst.push_back(15);
+    lst.push_back(25);
 
-    
-    // easyfind(l, 0);
-    l.sort(std::greater<int>());
-    // l.sort();
-    for(std::list<int>::iterator it = l.begin(); it != l.end(); it++)
-    {
-        std::cout << "-----> " << *it << std::endl;
-    }
+
+    std::cout << "\n--- Testing std::list ---" << std::endl;
+    easyfind(lst, 5);    
+    easyfind(lst, 42);   
+
+    // ====== DEQUE TEST ======
+    std::deque<int> dq;
+    dq.push_back(100);
+    dq.push_front(200);
+    dq.push_back(300);
+
+    std::cout << "\n--- Testing std::deque ---" << std::endl;
+    easyfind(dq, 200); 
+    easyfind(dq, 500);   
 
     return 0;
 }
