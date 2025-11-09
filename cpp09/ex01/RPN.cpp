@@ -27,6 +27,11 @@ bool RPN::isOperator(char c)
 
 void RPN::processRPN(const std::string& input)
 {
+    if (input.empty())
+    {
+        std::cerr << "Error: empty input" << std::endl;
+        return;
+    }
     std::string token;
 
     std::istringstream iss(input);
@@ -36,7 +41,7 @@ void RPN::processRPN(const std::string& input)
         if(token.size() == 1 && std::isdigit(token[0]))
         {
             rpn.push(token[0] - '0');
-            std::cout << "token == "<< token[0]-'0' << std::endl;
+            // std::cout << "token == "<< token[0]-'0' << std::endl;
             
         }
         else 
@@ -45,8 +50,8 @@ void RPN::processRPN(const std::string& input)
             {
                 if(rpn.size() < 2)
                 {
+                    std::cerr << "Error" << std::endl;
                     return;
-
                 }
                 else
                 {
@@ -80,23 +85,29 @@ void RPN::processRPN(const std::string& input)
                 }
             }
             else
+            {
                 std::cerr << "Error "<< std::endl;
+                return;
+            }
 
         }
 
     }
     if (rpn.size() == 1)
-    std::cout <<  result<< std::endl;
+        std::cout <<  result<< std::endl;
+    else if (!rpn.empty())
+    {
+        std::cerr << "Error" << std::endl;
+    }
     // display(rpn);
     
 
 }
 
-void RPN::display(std::stack<int> out)  // copy by value
-{
-    while (!out.empty())
-    {
-        std::cout << "stack === " << out.top() << std::endl;
-        out.pop();
-    }
-}
+// void RPN::display(std::stack<int>& out)  {
+//     while (!out.empty())
+//     {
+//         std::cout << "stack === " << out.top() << std::endl;
+//         out.pop();
+//     }
+// }

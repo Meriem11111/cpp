@@ -1,5 +1,18 @@
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& org) : btc(org.btc) {}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& org)
+{
+    if (this != &org)
+        btc = org.btc;
+    return *this;
+}
+
+BitcoinExchange::~BitcoinExchange() {}
+
 bool BitcoinExchange::checkDate(std::string& Date)
 {
 
@@ -41,9 +54,7 @@ bool BitcoinExchange::checkDate(std::string& Date)
     year = std::stoi(Date.substr(0, 4));
     month = std::stoi(Date.substr(5, 2));
     day = std::stoi(Date.substr(8, 2));
-    // std::cerr << "Year   === " << year <<std::endl;
-    // std::cerr << "month  === " << month <<std::endl;
-    // std::cerr << "day    === " << day <<std::endl;
+    
 
     if(year < 2009 || year > 2022)
     {
@@ -100,21 +111,21 @@ bool BitcoinExchange::checkValue(std::string& Value, float& val)
                 return 0;
             }
         }
-         else if (c == '+')
-    {
-        plusCount++;
-        if (i != 0 || plusCount > 1)
+        else if (c == '+')
         {
-            std::cout << "Invalid Value Format ::: " << Value << std::endl;
-            return 0;
+            plusCount++;
+            if (i != 0 || plusCount > 1)
+            {
+                std::cout << "Invalid Value Format ::: " << Value << std::endl;
+                return 0;
+            }
         }
-    }
         else if (!isdigit(c))
         {
             std::cout << "Invalid Value Format ::: " << Value << std::endl;
             return 0;
         }
-    }
+   }
 
 
     try {
@@ -153,17 +164,15 @@ void BitcoinExchange::CheckDate_Value(std::string& Date, std::string& Value)
     Value.erase(Value.find_last_not_of(" \t\n") + 1);
 
 
-    // std::cout <<"-------------------------------" << std::endl;
-    // std::cout << "date aftr " << Date << " ----  value  aftr::  " << Value << std::endl;
-    // std::cout <<"-------------------------------" << std::endl;
     
     float value = 0;
-    if (!checkDate(Date) || !checkValue(Value, value))
+    if (!checkDate(Date))
     {
-         if (!checkDate(Date))
-            std::cerr << "Error: bad input => " << Date << "\n";
+        std::cerr << "Error: bad input => " << Date << "\n";
         return;
     }
+    if (!checkValue(Value, value))
+        return; 
 
     
     
@@ -184,9 +193,6 @@ void BitcoinExchange::CheckDate_Value(std::string& Date, std::string& Value)
     float result = it->second * value;
     std ::cout << Date <<  " => " << value << " = " << result << std::endl;
 
-
-    // std::cout << "Closest lower date: " << it->first << ", Rate: " << it->second << std::endl;
-    
 
 }
 
@@ -239,7 +245,6 @@ void BitcoinExchange::ParseData(void)
         size_t index = line.find(",");
         if (index  == std::string::npos)
         {
-            // std::cerr << "Error: bad input in data file => " << line << std::endl;
             continue;
         }
         std::string date = line.substr(0, index);

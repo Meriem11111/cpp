@@ -1,10 +1,20 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(){}
-PmergeMe::~PmergeMe(){}
+PmergeMe::PmergeMe() {}
 
-// PmergeMe(const PmergeMe& org);
-// PmergeMe& operator=(const PmergeMe& org);
+PmergeMe::~PmergeMe() {}
+
+PmergeMe::PmergeMe(const PmergeMe& org) : v(org.v), d(org.d) {}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& org)
+{
+    if (this != &org)
+    {
+        v = org.v;
+        d = org.d;
+    }
+    return *this;
+}
 
 bool PmergeMe::Check(const std::string &input)
 {
