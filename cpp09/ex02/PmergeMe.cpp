@@ -1,13 +1,7 @@
 #include "PmergeMe.hpp"
 
-PmergeMe:: PmergeMe()
-{
-    // std::cout << "Constructur called " << std::endl;
-}
-PmergeMe::~PmergeMe()
-{
-    // std::cout << "Destructur called " << std::endl;
-}
+PmergeMe::PmergeMe(){}
+PmergeMe::~PmergeMe(){}
 
 // PmergeMe(const PmergeMe& org);
 // PmergeMe& operator=(const PmergeMe& org);
@@ -45,7 +39,7 @@ template <typename Container>
 Container JacobsthalIndex(size_t max)
 {
     Container arr;
-        // std::cout << "MAX == --------->  :  " << max << std::endl;
+        //  std::cout << "MAX == --------->  :  " << max << std::endl;
 
 
     if(max <= 1)
@@ -60,7 +54,7 @@ Container JacobsthalIndex(size_t max)
         arr.push_back(next);
         j0 = j1;
         j1 = next; 
-        //  std::cout << "ARR == --------->  :  " << next << std::endl;
+        //   std::cout << "ARR == --------->  :  " << next << std::endl;
     }
     return arr;
 }
@@ -68,15 +62,7 @@ Container JacobsthalIndex(size_t max)
 
 void PmergeMe::SortVector(std::vector<int>& vtr)
 {
-
-    std::cout << "Before :  ";
-    for (std::vector<int>::iterator it = vtr.begin(); it != vtr.end(); it++)
-    {
-        std::cout  << *it << " ";
-    }
-    std::cout << std::endl; 
     
-
     std::vector<int> largest;
     std::vector<int> smallest;
     std::vector<int> sorted;
@@ -131,7 +117,7 @@ void PmergeMe::SortVector(std::vector<int>& vtr)
         for(size_t k = *it_jcb ; k > prev ; --k)
         {
             std::vector<int>::iterator index;
-            // std::cout << "smallest[k] == " << smallest[k] <<std::endl; 
+
             index = std::lower_bound(sorted.begin(), sorted.end(), smallest[k]);
             sorted.insert(index, smallest[k]);
         }
@@ -158,16 +144,6 @@ void PmergeMe::SortVector(std::vector<int>& vtr)
     
     vtr = sorted;
 
-    if(vtr.size() == size_vec)
-    {
-        std::cout << "After :   ";
-        for (std::vector<int>::iterator it = vtr.begin(); it != vtr.end(); it++)
-        {
-            std::cout  << *it << " ";
-        }
-        std::cout << std::endl; 
-
-    }
 }
 
 
@@ -254,101 +230,58 @@ void PmergeMe::SortDeque(std::deque<int>& dq)
         sorted.insert(index, odd); 
     }
     
-    dq = sorted;
+      dq = sorted;
+
+    if(dq.size() == size_dq)
+    {
+        std::cout << "After dq:  ";
+        for (std::deque<int>::iterator it = dq.begin(); it != dq.end(); it++)
+        {
+            std::cout  << *it << " ";
+        }
+        std::cout << std::endl; 
+
+    }
 
 }
 
-// void PmergeMe::SortDeque(std::deque<int>& dq)
-// {
 
-  
-//     std::cout << "-------------------size: " << dq.size()  << std::endl;
-//     std::cout << "SortDeque called with size: " << dq.size() << " elements: ";
-//     for (int x : dq)
-//         std::cout << x << " ";
-//     std::cout << std::endl;
-
-//     std::deque<int> largest;
-//     std::deque<int> smallest;
-//     std::deque<int> sorted;
-//     int a, b, odd;
-//     bool is_odd = false;
-
-
-    
-//     if(dq.size() % 2 != 0 )
-//     {
-//         is_odd = true;
-//         odd = dq.back();
-//         std::cout << "odd == " << odd <<std::endl; 
-//         dq.pop_back();
-
-//     }
-//     for (std::deque<int>::iterator it = dq.begin(); it != dq.end(); it += 2)
-//     {
-       
-//         a = *it;
-//         b = *(it + 1);
-
-//         largest.push_back(std::max(a, b));
-//         smallest.push_back(std::min(a, b));
-//     }
-
-//     if (largest.size() > 1)
-//         SortDeque(largest);
-
-
-//     sorted = largest;
-
-
-//     for (std::deque<int>::iterator it = smallest.begin(); it != smallest.end(); it++)
-//     {
-//         std::deque<int>::iterator index;
-//         index = std::lower_bound(sorted.begin(), sorted.end(), *it);
-//         sorted.insert(index, *it);  
-//     }
-//     if(is_odd)
-//     {
-//         std::deque<int>::iterator index;
-//         index = std::lower_bound(sorted.begin(), sorted.end(), odd);
-//         sorted.insert(index, odd); 
-//     }
-
-//      for (std::deque<int>::iterator it = sorted.begin(); it != sorted.end(); it++)
-//     {
-        
-//         std::cout << "sorted == " << *it <<std::endl; 
-//         // std::cout << " sorted size == " << sorted.size() <<std::endl; 
-//     }
-
-//     dq = sorted;
-
-//     std::cout << "After sorting: ";
-//     for (int x : dq) std::cout << x << " ";
-//     std::cout << std::endl;
-
-
-// }
-
-void PmergeMe::fill()
+void PmergeMe::start()
 {
+    std::cout << "Before :  ";
+    for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++)
+    {
+        std::cout  << *it << " ";
+    }
+    std::cout << std::endl; 
+    
     size_vec = v.size();
-     size_dq = d.size();
+    size_dq = d.size();
     
     clock_t start = clock();
     SortVector(v);
     clock_t end = clock();
     double elapsed_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
-            std::cout << "Time to process a range of " << size_vec << " elements with std::vector : " << std::fixed << std::setprecision(5)
-                << elapsed_time << " us" << std::endl;
 
     clock_t start_d = clock();
-
-    // SortDeque(d);
+    SortDeque(d);
     clock_t end_d = clock();
+    double elapsed_time_d = static_cast<double>(end_d - start_d) / CLOCKS_PER_SEC * 1e6;
 
-   double elapsed_time_d = static_cast<double>(end_d - start_d) / CLOCKS_PER_SEC * 1e6;
-        std::cout << "Time to process a range of " << size_dq << " elements with std::deque : " << std::fixed << std::setprecision(5)
+
+   
+    std::cout << "After :   ";
+    for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++)
+    {
+        std::cout  << *it << " ";
+    }
+    std::cout << std::endl; 
+
+
+   
+    std::cout << "Time to process a range of " << size_vec << " elements with std::vector : " << std::fixed << std::setprecision(5)
+                << elapsed_time << " us" << std::endl;
+    std::cout << "Time to process a range of " << size_dq << " elements with std::deque : " << std::fixed << std::setprecision(5)
                 << elapsed_time_d << " us" << std::endl;
 }
 

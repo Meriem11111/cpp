@@ -6,8 +6,7 @@ RPN::RPN()
 }
 
 RPN::~RPN()
-{
-}
+{}
 
 RPN& RPN::operator=(const RPN& org)
 {

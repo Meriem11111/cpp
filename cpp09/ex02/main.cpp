@@ -20,7 +20,7 @@ int main(int ac, char **av)
         }
         i++;
     }
-    sort.fill();
+    sort.start();
     return 0;
 }
-
+// 5 8 3 1 22 9 6 33 4 7 

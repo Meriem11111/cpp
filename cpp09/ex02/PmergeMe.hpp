@@ -29,7 +29,7 @@ class PmergeMe
         bool Check(const std::string &input);
         void SortVector(std::vector<int>& vtr);
         void SortDeque(std::deque<int>& vtr);
-        void fill();
+        void start();
 
 };
 std::vector<size_t> JacobsthalIndex(size_t max);
