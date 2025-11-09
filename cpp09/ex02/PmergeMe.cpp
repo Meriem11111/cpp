@@ -230,18 +230,7 @@ void PmergeMe::SortDeque(std::deque<int>& dq)
         sorted.insert(index, odd); 
     }
     
-      dq = sorted;
-
-    if(dq.size() == size_dq)
-    {
-        std::cout << "After dq:  ";
-        for (std::deque<int>::iterator it = dq.begin(); it != dq.end(); it++)
-        {
-            std::cout  << *it << " ";
-        }
-        std::cout << std::endl; 
-
-    }
+    dq = sorted;
 
 }
 
